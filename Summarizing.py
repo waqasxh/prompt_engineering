@@ -9,6 +9,7 @@ _ = load_dotenv(find_dotenv())
 api_key = os.getenv('OPENAI_API_KEY_GENERIC')
 client = openai.OpenAI(api_key=api_key)
 
+
 def get_completion(prompt, model="gpt-3.5-turbo"):
     messages = [{"role": "user", "content": prompt}]
     response = client.chat.completions.create(
@@ -17,6 +18,7 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
         temperature=0
     )
     return response.choices[0].message.content
+
 
 prod_review = """
 Got this panda plush toy for my daughter's birthday, \
@@ -28,6 +30,7 @@ same price. It arrived a day earlier than expected, \
 so I got to play with it myself before I gave it \
 to her.
 """
+
 
 def summary_1():
     prompt = f"""
@@ -77,6 +80,7 @@ def summary_3():
 
     response = get_completion(prompt)
     print(response)
+
 
 def multiple_reviews():
     review_1 = prod_review 
@@ -171,6 +175,7 @@ def main():
     #summary_2()
     #summary_3()
     multiple_reviews()
+
 
 if __name__ == "__main__":
     main()

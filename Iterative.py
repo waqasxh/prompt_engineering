@@ -18,6 +18,7 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
     )
     return response.choices[0].message.content
 
+
 fact_sheet_chair = """
 OVERVIEW
 - Part of a beautiful family of mid-century inspired office furniture, 
@@ -58,6 +59,7 @@ SEAT
 COUNTRY OF ORIGIN
 - Italy
 """
+
 
 def issue_1():
     prompt_1 = f"""
@@ -172,7 +174,6 @@ def issue_3():
 
     response = get_completion(prompt)
     print(response)
-
 
 
 def main():

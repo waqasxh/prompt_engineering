@@ -18,6 +18,7 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
     )
     return response.choices[0].message.content
 
+
 lamp_review = """
 Needed a nice lamp for my bedroom, and this one had \
 additional storage and not too high of a price point. \
@@ -29,6 +30,7 @@ support and they very quickly got me the missing piece! \
 Lumina seems to me to be a great company that cares \
 about their customers and products!!
 """
+
 
 def example_1():
     prompt_1 = f"""
@@ -79,6 +81,7 @@ def example_3():
     response = get_completion(prompt)
     print(response)
 
+
 def example_4():
     prompt = f"""
     Identify the following items from the review text: 
@@ -96,6 +99,7 @@ def example_4():
     """
     response = get_completion(prompt)
     print(response)
+
 
 def multiple_task():
     prompt = f"""
@@ -147,6 +151,7 @@ address the concerns raised by employees in the survey and
 work towards improving job satisfaction across all departments.
 """
 
+
 def topics_5():
     prompt = f"""
     Determine five topics that are being discussed in the \
@@ -196,6 +201,7 @@ def main():
     #multiple_task()
     #topics_5()
     news_alert()
+
 
 if __name__ == "__main__":
     main()

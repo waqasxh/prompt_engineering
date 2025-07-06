@@ -1,23 +1,13 @@
 import openai
 import os
 
-def show_result(result):
-    root = tk.Tk()
-    root.title("LLM Result")
-    text_widget = tk.Text(root, wrap='word', width=80, height=20)
-    text_widget.insert('1.0', result)
-    text_widget.pack(expand=True, fill='both')
-    root.mainloop()
-
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
 
 
-from redlines import Redlines
-
-
 api_key = os.getenv('OPENAI_API_KEY_GENERIC')
 client = openai.OpenAI(api_key=api_key)
+
 
 def get_completion(prompt, model="gpt-3.5-turbo"):
     messages = [{"role": "user", "content": prompt}]
@@ -88,6 +78,7 @@ def example_2():
         response = get_completion(prompt)
         print(response, "\n")
 
+
 def example_3():
     prompt = f"""
     Translate the following from slang to a business letter: 
@@ -131,6 +122,7 @@ def spell_check1():
         response = get_completion(prompt)
         print(response)
 
+
 text = f"""
 Got this for my daughter for her birthday cuz she keeps taking \
 mine from my room.  Yes, adults also like pandas too.  She takes \
@@ -141,6 +133,7 @@ though. I think there might be other options that are bigger for \
 the same price.  It arrived a day earlier than expected, so I got \
 to play with it myself before I gave it to my daughter.
 """   
+
 
 def spell_check2():    
     prompt = f"proofread and correct this review: ```{text}```"
@@ -167,6 +160,7 @@ def main():
     #spell_check1()
     #spell_check2()
     spell_check3()
-    
+
+ 
 if __name__ == "__main__":
     main()
